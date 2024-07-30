@@ -33,9 +33,9 @@ Usage:
 7. Additional link: https://docs.netskope.com/en/netskope-help/integrations-439794/ipsec-and-gre/netskope-ipsec-with-amazon-web-services/configure-an-ipsec-tunnel-for-an-aws-transit-gateway/#configure-failover-automation-for-the-aws-transit-gateway-1
 
 Costing related to the Cloud Resources in AWS for the IPSec Failover Automation Solution.
-AWS Network Manager: 720*0.5$ = 360$
-AWS Lambda: 0.5$
-DynamoDB: 0.25$
-S3 Bucket: 0.15$
+1. AWS Network Manager: 720*0.5$ = 360$
+2. AWS Lambda: 0.5$
+3. DynamoDB: 0.25$
+4. S3 Bucket: 0.15$
 
 Total cost will be around 360.9$ +_5$

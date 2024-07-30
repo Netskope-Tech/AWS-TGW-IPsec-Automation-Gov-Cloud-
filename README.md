@@ -23,8 +23,7 @@ Usage:
    TGWAttachmentID2 - TGW attachment ID for the second (failover) VPN. For example, tgw-attach-01234567890123456
    TransitGatewayArn - TGW Arn which will be used while registering in the Network Manager with with Transit Gateway Network Manager
    Fallback - Yes/No for the route fallback support to the TGWAttachmentID1 if both of this IPsec tunnels became active.
-3. Before executing the CloudFormation template also make sure to create the S3 bucket and folder in the same bucket containing the lambda in zip format as downloaded from the github: https://github.com/dyuriaws/Netskope-TGW- 
-   management/blob/main/Lambda/IPsecManagementLambda.zip
+3. Before executing the CloudFormation template also make sure to create the S3 bucket and folder in the same bucket containing the lambda in zip format as downloaded from the github: https://github.com/Netskope-Tech/AWS-TGW-IPsec-Automation-Gov-Cloud-/blob/main/Lambda/IPsecManagementLambda.zip
    Update the below fields in the CloudFormation Template according to your values
    S3Bucket
    S3Prefix

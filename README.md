@@ -24,10 +24,13 @@ Usage:
    TransitGatewayArn - TGW Arn which will be used while registering in the Network Manager with with Transit Gateway Network Manager
    Fallback - Yes/No for the route fallback support to the TGWAttachmentID1 if both of this IPsec tunnels became active.
 3. Before executing the CloudFormation template also make sure to create the S3 bucket and folder in the same bucket containing the lambda in zip format as downloaded from the github: https://github.com/Netskope-Tech/AWS-TGW-IPsec-Automation-Gov-Cloud-/blob/main/Lambda/IPsecManagementLambda.zip
+
    Update the below fields in the CloudFormation Template according to your values
+
    S3Bucket
+
    S3Prefix
-4. After doing the required changes in CloudFormation Template and upload the same.
-5. Optionally, enter the Tags for your CloudFormation stack and click Next.
-6. Acknowledge creating IAM resources and click Create stack.
-7. Additional link: https://docs.netskope.com/en/netskope-help/integrations-439794/ipsec-and-gre/netskope-ipsec-with-amazon-web-services/configure-an-ipsec-tunnel-for-an-aws-transit-gateway/#configure-failover-automation-for-the-aws-transit-gateway-1
+5. After doing the required changes in CloudFormation Template and upload the same.
+6. Optionally, enter the Tags for your CloudFormation stack and click Next.
+7. Acknowledge creating IAM resources and click Create stack.
+8. Additional link: https://docs.netskope.com/en/netskope-help/integrations-439794/ipsec-and-gre/netskope-ipsec-with-amazon-web-services/configure-an-ipsec-tunnel-for-an-aws-transit-gateway/#configure-failover-automation-for-the-aws-transit-gateway-1

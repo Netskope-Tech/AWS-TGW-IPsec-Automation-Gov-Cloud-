@@ -1,4 +1,4 @@
-# Netskope-TGW-management - Failover automation solution for AWS TGW - Netskope IPsec tunnels
+# Netskope-TGW-management - Failover automation solution for AWS TGW - Netskope IPsec tunnels (Gov Cloud)
 
 The solution deploys Lambda function that's been triggered by the CloudWatch event rule for IPsec tunnel status change. When called by the CloudWatch event rule, the function checks if the both tunnel to the Netskope PoP are down, and if so, it scans all the TGW route tables for the static route pointing to the TGW VPN attachments for the corresponding Site-to-Site VPN connection, and replaces them with the alternative static route to the failover PoP.
 
@@ -11,6 +11,7 @@ You may enable of disable fallback functionality. If enabled, the Lambda functio
 In addition to checking and updating routes when IPsec tunnel status changes, the same Lambda function being triggered every 10 minutes to check that there are no routes left pointing to the IPsec connection which is currently down. This is to prevent the unlikely situation when IPsec connections were intensively bouncing, and the this caused a race condition between Lambda function executions which caused the last execution time out. Note, that only one Lambda function execution can run at any point of time to avoid inconsistent results. Concurrency has been controlled using DynamoDB table also being created by this solution.
 
 The CloudFormation stack creates the IAM role used by the Lambda function. This role implemented based on the least privilege access control model. To limit access to only TGW Attachments, therefore to the Route Tables that belong to this specific TGW, it uses IAM policy condition checking the Tags on the TGW Attachments. You must tag each of your TGW attachments with the tag "Key"="TGWName", "Value"="Your TGW Name". For example, "Key"="TGWName", "Value"="MyProdTGW-us-east-1".
+
 
 Usage:
 1. Download the yaml file from the github.
@@ -31,11 +32,3 @@ Usage:
 5. Optionally, enter the Tags for your CloudFormation stack and click Next.
 6. Acknowledge creating IAM resources and click Create stack.
 7. Additional link: https://docs.netskope.com/en/netskope-help/integrations-439794/ipsec-and-gre/netskope-ipsec-with-amazon-web-services/configure-an-ipsec-tunnel-for-an-aws-transit-gateway/#configure-failover-automation-for-the-aws-transit-gateway-1
-
-Costing related to the Cloud Resources in AWS for the IPSec Failover Automation Solution.
-1. AWS Network Manager: 720*0.5$ = 360$
-2. AWS Lambda: 0.5$
-3. DynamoDB: 0.25$
-4. S3 Bucket: 0.15$
-
-Total cost will be around 360.9$ +_5$
